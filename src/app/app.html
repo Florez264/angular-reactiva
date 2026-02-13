@@ -1,3 +1,11 @@
-<app-customer-search></app-customer-search>
+<app-header></app-header>
+
+<main>
+  @if (activeTab() === 'products') {
+    <app-product-grid></app-product-grid>
+  } @else if (activeTab() === 'cart') {
+    <app-cart></app-cart>
+  }
+</main>
 
 <router-outlet />
