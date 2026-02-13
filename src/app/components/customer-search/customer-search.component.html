@@ -1,0 +1,24 @@
+<div class="search-container">
+  <h2>Búsqueda de Clientes</h2>
+  
+  <div class="search-box">
+    <input 
+      type="text" 
+      [formControl]="searchControl" 
+      placeholder="Buscar clientes (mínimo 3 caracteres)..."
+      class="search-input"
+    />
+    <span class="loading-indicator" *ngIf="isLoading">Buscando...</span>
+  </div>
+
+  <ul class="results-list" *ngIf="customers.length > 0">
+    <li *ngFor="let customer of customers" class="result-item">
+      <strong>{{ customer.name }}</strong>
+      <span class="email">{{ customer.email }}</span>
+    </li>
+  </ul>
+
+  <p class="no-results" *ngIf="!isLoading && customers.length === 0 && searchControl.value && searchControl.value.length >= 3">
+    No se encontraron resultados
+  </p>
+</div>
