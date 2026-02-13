@@ -35,13 +35,12 @@ export class MockService {
     { id: 20, name: 'Jorge Silva', email: 'jorge2@example.com' }
   ];
 
-
   search(term: string): Observable<Customer[]> {
     const results = this.customers.filter(customer =>
       customer.name.toLowerCase().includes(term.toLowerCase()) ||
       customer.email.toLowerCase().includes(term.toLowerCase())
     );
-
-    return of(results).pipe(delay(500)); // Simula latencia de red
+    
+    return of(results).pipe(delay(300));
   }
 }
